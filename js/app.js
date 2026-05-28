@@ -1,6 +1,12 @@
 (function () {
   const CATEGORIES = ['平台简介', '商家大类', '热点同款'];
 
+  const CATEGORY_IMAGES = {
+    '平台简介': 'https://picsum.photos/seed/platform-cat/800/1066',
+    '商家大类': 'https://picsum.photos/seed/merchant-cat/800/1066',
+    '热点同款': 'https://picsum.photos/seed/trending-cat/800/1066'
+  };
+
   let articles = [];
   let currentView = 'home';
   let currentCategory = null;
@@ -57,7 +63,7 @@
     currentSearch = '';
     if (noResults) noResults.classList.remove('visible');
 
-    const sectionsHTML = CATEGORIES.map(cat => {
+    const sectionsHTML = CATEGORIES.map((cat, idx) => {
       const catArticles = articles
         .filter(a => a.category === cat)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -65,14 +71,21 @@
 
       if (catArticles.length === 0) return '';
 
+      const reverse = idx % 2 === 1;
+
       return `
         <section class="section">
           <div class="section__header">
             <h2 class="section__title">${escapeHTML(cat)}</h2>
             <button class="section__more" data-goto="${escapeHTML(cat)}">查看全部 &rarr;</button>
           </div>
-          <div class="section__cards">
-            ${catArticles.map(a => createCard(a)).join('')}
+          <div class="section__row${reverse ? ' section__row--reverse' : ''}">
+            <div class="section__image-wrap">
+              <img class="section__image" src="${CATEGORY_IMAGES[cat]}" alt="${escapeHTML(cat)}" loading="lazy">
+            </div>
+            <div class="section__articles">
+              ${catArticles.map(a => createArticleLink(a)).join('')}
+            </div>
           </div>
         </section>`;
     }).join('');
@@ -171,6 +184,16 @@
           <p class="card__summary">${escapeHTML(article.summary)}</p>
           <time class="card__date" datetime="${article.date}">${formatDate(article.date)}</time>
         </div>
+      </a>`;
+  }
+
+  /* ---- Article Link (compact, for home sections) ---- */
+  function createArticleLink(article) {
+    return `
+      <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener" class="article-link">
+        <span class="article-link__title">${escapeHTML(article.title)}</span>
+        <span class="article-link__summary">${escapeHTML(article.summary)}</span>
+        <time class="article-link__date">${formatDate(article.date)}</time>
       </a>`;
   }
 

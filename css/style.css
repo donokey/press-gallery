@@ -244,10 +244,87 @@ h1, h2, h3 {
   color: var(--color-brand);
 }
 
-.section__cards {
+.section__row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--grid-gap);
+  grid-template-columns: 3fr 2fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.section__row--reverse {
+  grid-template-columns: 2fr 3fr;
+}
+
+.section__row--reverse .section__image-wrap {
+  order: 2;
+}
+
+.section__row--reverse .section__articles {
+  order: 1;
+}
+
+.section__image-wrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+}
+
+.section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.section__image-wrap:hover .section__image {
+  transform: scale(1.03);
+}
+
+.section__articles {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.article-link {
+  display: block;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: padding var(--transition);
+}
+
+.article-link:hover {
+  padding-left: 0.5rem;
+}
+
+.article-link__title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-link__summary {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 0.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-link__date {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  margin-top: 0.35rem;
+  letter-spacing: 0.03em;
 }
 
 /* ========================================
@@ -412,8 +489,21 @@ h1, h2, h3 {
    11. Responsive
    ======================================== */
 @media (max-width: 900px) {
-  .section__cards {
-    grid-template-columns: repeat(2, 1fr);
+  .section__row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .section__row--reverse {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section__image-wrap {
+    aspect-ratio: 3 / 4;
+  }
+
+  .article-link__title {
+    font-size: 0.85rem;
   }
 
   .grid {
@@ -467,8 +557,22 @@ h1, h2, h3 {
     font-size: 1.3rem;
   }
 
-  .section__cards {
+  .section__row,
+  .section__row--reverse {
     grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .section__row--reverse .section__image-wrap {
+    order: -1;
+  }
+
+  .section__row--reverse .section__articles {
+    order: 0;
+  }
+
+  .section__image-wrap {
+    aspect-ratio: 16 / 9;
   }
 
   .grid {
