@@ -1,182 +1,182 @@
 [
   {
     "id": 1,
-    "title": "2026 秋冬时装周落幕：极简主义强势回归",
-    "summary": "米兰、巴黎时装周相继收官，设计师们不约而同地选择了利落剪裁与中性色调，宣告 Quiet Luxury 风格进入新纪元。",
+    "title": "Press Gallery 平台正式上线：打造全新新闻聚合体验",
+    "summary": "经过数月的精心打磨，Press Gallery 新闻精选平台正式面向公众开放，以杂志式排版重塑资讯浏览方式。",
     "date": "2026-05-20",
-    "url": "https://example.com/fashion-week-2026",
-    "category": "时尚",
-    "image": "https://picsum.photos/seed/fashion1/800/500"
+    "url": "https://example.com/platform-launch",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform1/800/500"
   },
   {
     "id": 2,
-    "title": "Gucci 任命新任创意总监，引发业界震动",
-    "summary": "开云集团正式宣布由一位年轻设计师接掌 Gucci 创意大权，这是品牌百年历史上最大胆的一次人事变动。",
+    "title": "平台核心功能一览：从智能分类到一键分享",
+    "summary": "深度解析 Press Gallery 的三大核心功能——智能分类导航、杂志级排版引擎和即时分享机制。",
     "date": "2026-05-18",
-    "url": "https://example.com/gucci-new-director",
-    "category": "时尚",
-    "image": "https://picsum.photos/seed/fashion2/800/500"
+    "url": "https://example.com/platform-features",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform2/800/500"
   },
   {
     "id": 3,
-    "title": "SK-II 推出新一代精华：PITERA 科技再突破",
-    "summary": "经过十年研发，SK-II 宣布其标志性成分 PITERA 迎来革命性升级，新产品将于下月全球同步上市。",
+    "title": "Press Gallery 用户协议与隐私政策更新公告",
+    "summary": "为更好保护用户数据安全，平台对用户协议和隐私政策进行了全面修订，即日起正式生效。",
     "date": "2026-05-15",
-    "url": "https://example.com/skii-new-serum",
-    "category": "美容",
-    "image": "https://picsum.photos/seed/beauty1/800/500"
+    "url": "https://example.com/platform-policy",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform3/800/500"
   },
   {
     "id": 4,
-    "title": "故宫博物院「千里江山」数字艺术展即将开幕",
-    "summary": "以北宋《千里江山图》为核心的全景数字体验展，将首次运用 AI 生成技术还原千年画卷的色彩与细节。",
-    "date": "2026-05-14",
-    "url": "https://example.com/forbidden-city-digital",
-    "category": "文化",
-    "image": "https://picsum.photos/seed/culture1/800/500"
+    "title": "平台技术架构揭秘：纯静态站点的极致性能",
+    "summary": "零服务器、零数据库，Press Gallery 如何通过纯静态架构实现毫秒级页面加载与零运维成本。",
+    "date": "2026-05-12",
+    "url": "https://example.com/platform-tech",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform4/800/500"
   },
   {
     "id": 5,
-    "title": "苹果发布 M4 Ultra 芯片：性能再翻倍",
-    "summary": "Apple 正式发布 M4 Ultra 处理器，采用全新 2nm 工艺，GPU 性能较上一代提升 120%，AI 算力达 80 TOPS。",
-    "date": "2026-05-12",
-    "url": "https://example.com/apple-m4-ultra",
-    "category": "科技",
-    "image": "https://picsum.photos/seed/tech1/800/500"
+    "title": "平台内容合作计划启动：诚邀优质媒体入驻",
+    "summary": "Press Gallery 正式启动内容合作伙伴招募计划，首批入驻媒体将获得首页推荐位与流量扶持。",
+    "date": "2026-05-10",
+    "url": "https://example.com/platform-partner",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform5/800/500"
   },
   {
     "id": 6,
-    "title": "LVMH 集团季度营收突破 250 亿欧元创历史新高",
-    "summary": "受亚洲市场强劲反弹推动，LVMH 2026 年第一季度营收同比增长 18%，时装与皮具部门表现尤为亮眼。",
-    "date": "2026-05-10",
-    "url": "https://example.com/lvmh-record-revenue",
-    "category": "商业",
-    "image": "https://picsum.photos/seed/biz1/800/500"
+    "title": "平台首次版本更新：搜索性能提升与界面优化",
+    "summary": "Press Gallery v1.1 正式发布，搜索响应速度提升 300%，同时优化了移动端阅读体验。",
+    "date": "2026-05-08",
+    "url": "https://example.com/platform-update",
+    "category": "平台简介",
+    "image": "https://picsum.photos/seed/platform6/800/500"
   },
   {
     "id": 7,
-    "title": "全球首款固态电池电动汽车即将量产",
-    "summary": "丰田宣布搭载固态电池的纯电车型已通过全部耐久测试，续航突破 1200 公里，充电仅需 10 分钟。",
-    "date": "2026-05-08",
-    "url": "https://example.com/solid-state-battery-ev",
-    "category": "科技",
-    "image": "https://picsum.photos/seed/tech2/800/500"
+    "title": "旗舰店专区全面升级：品牌官方直营一站式入驻",
+    "summary": "平台旗舰店专区迎来重大改版，支持品牌方开设官方直营页面，涵盖店铺展示、新品首发与会员运营。",
+    "date": "2026-05-22",
+    "url": "https://example.com/flagship-upgrade",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop1/800/500"
   },
   {
     "id": 8,
-    "title": "2026 Met Gala 主题揭晓：「数字时代的身体」",
-    "summary": "Anna Wintour 宣布本届 Met Gala 将探讨科技与身体的边界，预计将迎来史上最大胆的红毯造型。",
-    "date": "2026-05-06",
-    "url": "https://example.com/met-gala-2026-theme",
-    "category": "时尚",
-    "image": "https://picsum.photos/seed/fashion3/800/500"
+    "title": "设计师买手店集合：小而美的独立品牌正在崛起",
+    "summary": "聚焦当下最受瞩目的独立设计师买手店，从选品理念到空间设计，解读新一代零售美学的商业逻辑。",
+    "date": "2026-05-19",
+    "url": "https://example.com/designer-shops",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop2/800/500"
   },
   {
     "id": 9,
-    "title": "La Mer 全新鎏金系列面霜深度测评：奢华护肤的极致体验",
-    "summary": "我们提前体验了 La Mer 即将发布的新品，这款定价超过 5000 元的面霜究竟是否物有所值？",
-    "date": "2026-05-04",
-    "url": "https://example.com/la-mer-review",
-    "category": "美容",
-    "image": "https://picsum.photos/seed/beauty2/800/500"
+    "title": "跨境电商商家入驻指南：从资质审核到首单成交",
+    "summary": "一文读懂跨境电商商家在平台的完整入驻流程，包含资质要求、品类选择策略及流量获取技巧。",
+    "date": "2026-05-16",
+    "url": "https://example.com/cross-border-guide",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop3/800/500"
   },
   {
     "id": 10,
-    "title": "上海当代艺术博物馆年度大展：安藤忠雄建筑回顾",
-    "summary": "展览完整呈现安藤忠雄 50 年创作生涯，包括罕见手稿、模型和等比例复刻的「光之教堂」。",
-    "date": "2026-05-02",
-    "url": "https://example.com/ando-exhibition-shanghai",
-    "category": "文化",
-    "image": "https://picsum.photos/seed/culture2/800/500"
+    "title": "老字号品牌数字化转型：百年老店如何拥抱新零售",
+    "summary": "探访多家成功转型的中华老字号品牌，解析其数字化运营策略与全渠道布局的核心方法论。",
+    "date": "2026-05-13",
+    "url": "https://example.com/heritage-brands",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop4/800/500"
   },
   {
     "id": 11,
-    "title": "Nike 宣布与可持续科技公司达成 10 亿美元合作",
-    "summary": "耐克签署品牌史上最大的一笔环保投资协议，计划在 2028 年前实现全线产品 100% 使用再生材料。",
-    "date": "2026-04-30",
-    "url": "https://example.com/nike-sustainability-deal",
-    "category": "商业",
-    "image": "https://picsum.photos/seed/biz2/800/500"
+    "title": "新锐品牌孵化计划：平台助力 100 个初创品牌成长",
+    "summary": "Press Gallery 联合多家投资机构推出新锐品牌孵化计划，为初创商家提供流量、技术、资金三重支持。",
+    "date": "2026-05-09",
+    "url": "https://example.com/incubator-program",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop5/800/500"
   },
   {
     "id": 12,
-    "title": "慢生活运动兴起：都市人开始「反向消费」",
-    "summary": "从极限节俭到 mindful spending，越来越多年轻人开始反思消费主义，追求更有品质的简约生活。",
-    "date": "2026-04-28",
-    "url": "https://example.com/slow-living-trend",
-    "category": "生活方式",
-    "image": "https://picsum.photos/seed/life1/800/500"
+    "title": "商家服务商生态白皮书：物流、支付、营销全链路解析",
+    "summary": "发布首份商家服务商生态研究报告，覆盖仓储物流、跨境支付、内容营销等关键环节的头部服务商盘点。",
+    "date": "2026-05-06",
+    "url": "https://example.com/service-ecosystem",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop6/800/500"
   },
   {
     "id": 13,
-    "title": "Chanel 2026 早春度假系列：地中海的诗意漫游",
-    "summary": "Virginie Viard 在马赛呈现了一场充满阳光、海风与自由气息的度假系列，轻盈面料令人耳目一新。",
-    "date": "2026-04-25",
-    "url": "https://example.com/chanel-cruise-2026",
-    "category": "时尚",
-    "image": "https://picsum.photos/seed/fashion4/800/500"
+    "title": "2026 秋冬配饰趋势报告：这些单品正在全网断货",
+    "summary": "大数据追踪显示， oversized 围巾、金属质感手袋和复古胸针成为本季最受追捧的三大配饰品类。",
+    "date": "2026-05-21",
+    "url": "https://example.com/accessories-trend",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot1/800/500"
   },
   {
     "id": 14,
-    "title": "AI 设计工具席卷时尚行业：设计师会被取代吗",
-    "summary": "从面料设计到秀场布置，AI 正以前所未有的速度渗透时尚产业链。设计师们如何看待这场变革？",
-    "date": "2026-04-22",
-    "url": "https://example.com/ai-fashion-design",
-    "category": "科技",
-    "image": "https://picsum.photos/seed/tech3/800/500"
+    "title": "国潮美妆持续霸榜：这 5 款单品月销破千万",
+    "summary": "盘点近期持续占据销量榜首的国潮美妆单品，从成分研发到包装设计，解析爆款的底层逻辑。",
+    "date": "2026-05-17",
+    "url": "https://example.com/beauty-trending",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot2/800/500"
   },
   {
     "id": 15,
-    "title": "Hermès 皮具工坊开放日：揭秘一只 Birkin 的诞生",
-    "summary": "爱马仕首次向公众开放其位于巴黎郊区的核心工坊，展示从选皮到缝制的完整手工流程。",
-    "date": "2026-04-20",
-    "url": "https://example.com/hermes-atelier-open",
-    "category": "时尚",
-    "image": "https://picsum.photos/seed/fashion5/800/500"
+    "title": "AI 智能家居引爆消费电子赛道：热门产品横评",
+    "summary": "横向对比 8 款最新 AI 驱动的智能家居产品，涵盖语音助手、智能照明与家庭安防三大品类。",
+    "date": "2026-05-14",
+    "url": "https://example.com/smart-home-trending",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot3/800/500"
   },
   {
     "id": 16,
-    "title": "Aesop 全球旗舰店落户京都町屋：当护肤遇见侘寂",
-    "summary": "澳洲护肤品牌 Aesop 在京都百年町屋内打造最新旗舰空间，融合传统日式美学与现代零售体验。",
-    "date": "2026-04-18",
-    "url": "https://example.com/aesop-kyoto-flagship",
-    "category": "美容",
-    "image": "https://picsum.photos/seed/beauty3/800/500"
+    "title": "可持续时尚消费报告：绿色单品搜索量增长 340%",
+    "summary": "基于平台搜索数据，可持续材料制成的服装与配饰在过去一季度搜索量同比增长超三倍。",
+    "date": "2026-05-11",
+    "url": "https://example.com/sustainable-fashion",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot4/800/500"
   },
   {
     "id": 17,
-    "title": "故宫文创年营收突破 20 亿元：博物馆商业的标杆",
-    "summary": "故宫博物院文创部门公布最新财报，数字产品与线下零售双线爆发，成为全球最赚钱的博物馆商业体。",
-    "date": "2026-04-15",
-    "url": "https://example.com/forbidden-city-revenue",
-    "category": "商业",
-    "image": "https://picsum.photos/seed/biz3/800/500"
+    "title": "运动休闲风强势回归：Y2K 美学掀起第二波浪潮",
+    "summary": "从运动套装到厚底跑鞋，Y2K 运动美学再度席卷社交平台，相关单品成交量连续八周攀升。",
+    "date": "2026-05-07",
+    "url": "https://example.com/athleisure-trend",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot5/800/500"
   },
   {
     "id": 18,
-    "title": "全球城市生活成本排名发布：上海首次跃居榜首",
-    "summary": "经济学人智库发布 2026 年全球生活成本指数，上海超越香港和新加坡，成为全球生活最昂贵的城市。",
-    "date": "2026-04-12",
-    "url": "https://example.com/cost-of-living-2026",
-    "category": "生活方式",
-    "image": "https://picsum.photos/seed/life2/800/500"
+    "title": "宠物经济升温：智能宠物用品成年度增长最快品类",
+    "summary": "自动喂食器、宠物摄像头和智能猫砂盆位列品类增长前三，宠物经济正从食品向科技产品迁移。",
+    "date": "2026-05-04",
+    "url": "https://example.com/pet-tech-trending",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot6/800/500"
   },
   {
     "id": 19,
-    "title": "威尼斯双年展中国馆开幕：「水之道」引发热议",
-    "summary": "第 61 届威尼斯双年展中国馆以「水」为母题，融合数字影像与传统水墨，获国际媒体广泛好评。",
-    "date": "2026-04-10",
-    "url": "https://example.com/venice-biennale-china",
-    "category": "文化",
-    "image": "https://picsum.photos/seed/culture3/800/500"
+    "title": "2026 夏季家居潮流：多巴胺配色与复古家具回潮",
+    "summary": "从多巴胺亮色系到 70 年代柚木家具，本季家居设计的核心关键词是「大胆表达」与「怀旧质感」。",
+    "date": "2026-05-02",
+    "url": "https://example.com/home-decor-trending",
+    "category": "热点同款",
+    "image": "https://picsum.photos/seed/hot7/800/500"
   },
   {
     "id": 20,
-    "title": "TikTok Shop 正式超越亚马逊成全球最大电商平台",
-    "summary": "据最新行业报告，TikTok Shop 2026 年第一季度 GMV 首次超过亚马逊，社交电商时代全面到来。",
-    "date": "2026-04-08",
-    "url": "https://example.com/tiktok-shop-overtakes-amazon",
-    "category": "商业",
-    "image": "https://picsum.photos/seed/biz4/800/500"
+    "title": "新兴品牌案例：一家只卖白色T恤的店铺如何年销过亿",
+    "summary": "深度拆解白T品牌「White Canvas」的商业模式——极致单品策略如何通过面料创新与内容营销突围。",
+    "date": "2026-04-28",
+    "url": "https://example.com/white-canvas-case",
+    "category": "商家大类",
+    "image": "https://picsum.photos/seed/shop7/800/500"
   }
 ]

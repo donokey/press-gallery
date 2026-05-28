@@ -151,12 +151,9 @@ h1, h2, h3 {
   white-space: nowrap;
 }
 
-.pill[data-category="时尚"]     { background: #fdf2f4; color: #c41e3a; }
-.pill[data-category="美容"]     { background: #fff0f3; color: #d6336c; }
-.pill[data-category="文化"]     { background: #f4f0ff; color: #6741d9; }
-.pill[data-category="商业"]     { background: #edf2ff; color: #3b5bdb; }
-.pill[data-category="科技"]     { background: #e6fcf5; color: #087f5b; }
-.pill[data-category="生活方式"] { background: #f4fce3; color: #5c940d; }
+.pill[data-category="平台简介"] { background: #f4f0ff; color: #6741d9; }
+.pill[data-category="商家大类"] { background: #edf2ff; color: #3b5bdb; }
+.pill[data-category="热点同款"] { background: #fff4e6; color: #e67700; }
 
 .pill:hover {
   filter: brightness(0.95);
@@ -201,28 +198,56 @@ h1, h2, h3 {
 }
 
 /* ========================================
-   6. Hero Zone
+   6. Home Sections (Three-category layout)
    ======================================== */
-.hero {
+.section {
   max-width: var(--max-width);
-  margin: var(--spacing-lg) auto 0;
-  padding: 0 var(--spacing-md);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.section + .section {
+  padding-top: 0;
+}
+
+.section__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-text);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
+.section__more {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color var(--transition);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.section__more:hover {
+  color: var(--color-brand);
+}
+
+.section__cards {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--grid-gap);
-}
-
-.hero .card:first-child {
-  grid-row: 1 / 3;
-}
-
-.hero .card:first-child .card__title {
-  font-size: 1.8rem;
-}
-
-.hero .card:first-child .card__summary {
-  display: block;
 }
 
 /* ========================================
@@ -248,10 +273,6 @@ h1, h2, h3 {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #f0f0f0;
-}
-
-.card--tall .card__image-wrap {
-  aspect-ratio: 16 / 14;
 }
 
 .card__image {
@@ -325,7 +346,7 @@ h1, h2, h3 {
 }
 
 /* ========================================
-   8. Article Grid
+   8. Category Grid (detail view)
    ======================================== */
 .grid {
   max-width: var(--max-width);
@@ -333,16 +354,11 @@ h1, h2, h3 {
   padding: var(--spacing-lg) var(--spacing-md);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
   gap: var(--grid-gap);
 }
 
 .card--large {
   grid-column: span 2;
-}
-
-.card--tall {
-  grid-row: span 2;
 }
 
 /* ========================================
@@ -396,13 +412,8 @@ h1, h2, h3 {
    11. Responsive
    ======================================== */
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero .card:first-child {
-    grid-column: 1 / -1;
-    grid-row: auto;
+  .section__cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .grid {
@@ -411,10 +422,6 @@ h1, h2, h3 {
 
   .card--large {
     grid-column: span 1;
-  }
-
-  .card--tall {
-    grid-row: span 1;
   }
 }
 
@@ -448,13 +455,20 @@ h1, h2, h3 {
     width: 100%;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    margin-top: var(--spacing-md);
+  .section {
+    padding: var(--spacing-md) var(--spacing-sm);
   }
 
-  .hero .card:first-child .card__title {
+  .section + .section {
+    padding-top: 0;
+  }
+
+  .section__title {
     font-size: 1.3rem;
+  }
+
+  .section__cards {
+    grid-template-columns: 1fr;
   }
 
   .grid {

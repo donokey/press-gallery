@@ -1,14 +1,16 @@
 (function () {
+  const CATEGORIES = ['平台简介', '商家大类', '热点同款'];
+
   let articles = [];
-  let currentCategory = 'all';
+  let currentView = 'home';
+  let currentCategory = null;
   let currentSearch = '';
   let searchTimer = null;
 
   /* ---- DOM refs ---- */
   const categoryPills = document.getElementById('categoryPills');
   const searchInput = document.getElementById('searchInput');
-  const heroZone = document.getElementById('heroZone');
-  const articleGrid = document.getElementById('articleGrid');
+  const contentArea = document.getElementById('contentArea');
   const noResults = document.getElementById('noResults');
 
   /* ---- Fetch ---- */
@@ -19,23 +21,23 @@
       articles = await res.json();
       init();
     } catch (err) {
-      articleGrid.innerHTML =
-        '<p style="text-align:center;grid-column:1/-1;color:var(--color-muted);">文章加载失败，请刷新页面重试。</p>';
+      contentArea.innerHTML =
+        '<p style="text-align:center;padding:4rem;color:var(--color-muted);">文章加载失败，请刷新页面重试。</p>';
       console.error(err);
     }
   }
 
   /* ---- Init ---- */
   function init() {
-    renderCategories();
-    renderAll();
+    renderPills();
+    renderHome();
     bindEvents();
   }
 
-  /* ---- Categories ---- */
-  function renderCategories() {
-    const cats = ['all', ...new Set(articles.map(a => a.category))];
-    categoryPills.innerHTML = cats
+  /* ---- Pills ---- */
+  function renderPills() {
+    const pills = ['all', ...CATEGORIES];
+    categoryPills.innerHTML = pills
       .map(c =>
         `<button class="pill${c === 'all' ? ' active' : ''}" data-category="${c}">
           ${c === 'all' ? '全部' : c}
@@ -44,39 +46,106 @@
       .join('');
   }
 
-  /* ---- Filtering ---- */
-  function getFiltered() {
-    return articles
-      .filter(a => {
-        if (currentCategory !== 'all' && a.category !== currentCategory) return false;
-        if (currentSearch && !a.title.toLowerCase().includes(currentSearch.toLowerCase())) return false;
-        return true;
-      })
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  /* ---- Home View ---- */
+  function renderHome() {
+    currentView = 'home';
+    currentCategory = null;
+    searchInput.value = '';
+    currentSearch = '';
+    noResults.classList.remove('visible');
+
+    const sectionsHTML = CATEGORIES.map(cat => {
+      const catArticles = articles
+        .filter(a => a.category === cat)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 4);
+
+      if (catArticles.length === 0) return '';
+
+      return `
+        <section class="section">
+          <div class="section__header">
+            <h2 class="section__title">${escapeHTML(cat)}</h2>
+            <button class="section__more" data-goto="${escapeHTML(cat)}">查看全部 &rarr;</button>
+          </div>
+          <div class="section__cards">
+            ${catArticles.map(a => createCard(a)).join('')}
+          </div>
+        </section>`;
+    }).join('');
+
+    contentArea.innerHTML = sectionsHTML;
+
+    document.querySelectorAll('.section__more').forEach(btn => {
+      btn.addEventListener('click', () => renderCategory(btn.dataset.goto));
+    });
   }
 
-  /* ---- Rendering ---- */
-  function renderAll() {
-    const filtered = getFiltered();
+  /* ---- Category Detail View ---- */
+  function renderCategory(cat) {
+    currentView = 'category';
+    currentCategory = cat;
+    searchInput.value = '';
+    currentSearch = '';
+    noResults.classList.remove('visible');
+
+    updatePillActive(cat);
+
+    const filtered = articles
+      .filter(a => a.category === cat)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     if (filtered.length === 0) {
-      heroZone.innerHTML = '';
-      articleGrid.innerHTML = '';
+      contentArea.innerHTML = '';
       noResults.classList.add('visible');
       return;
     }
 
-    noResults.classList.remove('visible');
-
-    const heroArticles = filtered.slice(0, 3);
-    const gridArticles = filtered.slice(3);
-
-    heroZone.innerHTML = heroArticles.map(a => createCard(a, a.id)).join('');
-    articleGrid.innerHTML = gridArticles.map((a, i) => createCard(a, a.id, i + 3)).join('');
+    contentArea.innerHTML = `
+      <section class="section">
+        <div class="section__header">
+          <h2 class="section__title">${escapeHTML(cat)}</h2>
+          <span class="section__more" style="color:var(--color-muted);cursor:default;">共 ${filtered.length} 篇</span>
+        </div>
+      </section>
+      <div class="grid">
+        ${filtered.map((a, i) => createCard(a)).join('')}
+      </div>`;
   }
 
-  function createCard(article, id, position) {
-    const classes = getCardModifiers(id);
+  /* ---- Search (grid view) ---- */
+  function renderSearch(term) {
+    currentView = 'category';
+    currentCategory = null;
+    currentSearch = term;
+    noResults.classList.remove('visible');
+
+    updatePillActive('all');
+
+    const filtered = articles
+      .filter(a => a.title.toLowerCase().includes(term.toLowerCase()))
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    if (filtered.length === 0) {
+      contentArea.innerHTML = '';
+      noResults.classList.add('visible');
+      return;
+    }
+
+    contentArea.innerHTML = `
+      <section class="section">
+        <div class="section__header">
+          <h2 class="section__title">搜索："${escapeHTML(term)}"</h2>
+          <span class="section__more" style="color:var(--color-muted);cursor:default;">共 ${filtered.length} 篇</span>
+        </div>
+      </section>
+      <div class="grid">
+        ${filtered.map((a, i) => createCard(a)).join('')}
+      </div>`;
+  }
+
+  /* ---- Card ---- */
+  function createCard(article) {
     const hasImage = article.image && article.image.trim() !== '';
 
     const imageHTML = hasImage
@@ -88,7 +157,7 @@
       : `<div class="card__image--placeholder"></div>`;
 
     return `
-      <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener" class="card ${classes}">
+      <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener" class="card">
         <div class="card__image-wrap">
           ${imageHTML}
           ${placeholderHTML}
@@ -102,53 +171,48 @@
       </a>`;
   }
 
-  function getCardModifiers(id) {
-    let classes = '';
-    if (id % 7 === 6) classes += ' card--large';
-    if (id % 11 === 10) classes += ' card--tall';
-    return classes;
-  }
-
-  /* ---- Filter actions ---- */
-  function setCategory(cat) {
-    currentCategory = cat;
+  /* ---- Helpers ---- */
+  function updatePillActive(cat) {
     document.querySelectorAll('.pill').forEach(p => {
       p.classList.toggle('active', p.dataset.category === cat);
     });
-    renderAll();
   }
 
-  function setSearch(term) {
-    currentSearch = term;
-    renderAll();
-  }
-
-  /* ---- Events ---- */
-  function bindEvents() {
-    categoryPills.addEventListener('click', e => {
-      if (e.target.classList.contains('pill')) {
-        setCategory(e.target.dataset.category);
-      }
-    });
-
-    searchInput.addEventListener('input', e => {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(() => setSearch(e.target.value), 200);
-    });
-  }
-
-  /* ---- Utilities ---- */
   function formatDate(dateStr) {
     const d = new Date(dateStr);
     return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  const entityMap = {
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  };
-
+  const entityMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
   function escapeHTML(str) {
     return String(str).replace(/[&<>"']/g, c => entityMap[c]);
+  }
+
+  /* ---- Events ---- */
+  function bindEvents() {
+    categoryPills.addEventListener('click', e => {
+      if (!e.target.classList.contains('pill')) return;
+      const cat = e.target.dataset.category;
+      if (cat === 'all') {
+        renderHome();
+      } else {
+        renderCategory(cat);
+      }
+    });
+
+    searchInput.addEventListener('input', e => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        const term = e.target.value.trim();
+        if (term) {
+          renderSearch(term);
+        } else if (currentView === 'category' && currentCategory) {
+          renderCategory(currentCategory);
+        } else {
+          renderHome();
+        }
+      }, 200);
+    });
   }
 
   /* ---- Start ---- */
