@@ -1,0 +1,467 @@
+/* ========================================
+   1. Design Tokens
+   ======================================== */
+:root {
+  --font-serif: 'Noto Serif SC', 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  --font-sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #757575;
+  --color-accent: #c41e3a;
+  --color-border: #e8e8e8;
+  --color-rule: #d4d4d4;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  --max-width: 1200px;
+  --grid-gap: 1.5rem;
+  --card-radius: 4px;
+  --transition: 0.2s ease;
+}
+
+/* ========================================
+   2. Reset / Base
+   ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========================================
+   3. Typography
+   ======================================== */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* ========================================
+   4. Masthead
+   ======================================== */
+.masthead {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+}
+
+.masthead__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.masthead__subtitle {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: var(--spacing-xs);
+}
+
+.masthead__rule {
+  width: 40px;
+  height: 2px;
+  background: var(--color-text);
+  margin: 0 auto;
+}
+
+.masthead__rule:first-of-type {
+  margin-bottom: var(--spacing-md);
+}
+
+.masthead__rule:last-of-type {
+  margin-top: var(--spacing-md);
+}
+
+/* ========================================
+   5. Navigation
+   ======================================== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
+}
+
+.nav__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.nav__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.pill[data-category="时尚"]     { background: #fdf2f4; color: #c41e3a; }
+.pill[data-category="美容"]     { background: #fff0f3; color: #d6336c; }
+.pill[data-category="文化"]     { background: #f4f0ff; color: #6741d9; }
+.pill[data-category="商业"]     { background: #edf2ff; color: #3b5bdb; }
+.pill[data-category="科技"]     { background: #e6fcf5; color: #087f5b; }
+.pill[data-category="生活方式"] { background: #f4fce3; color: #5c940d; }
+
+.pill:hover {
+  filter: brightness(0.95);
+}
+
+.pill.active {
+  background: var(--color-text);
+  color: #ffffff;
+}
+
+/* Search */
+.nav__search {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.75rem 0.45rem 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+  width: 200px;
+  transition: border-color var(--transition), width var(--transition);
+}
+
+.search-input:focus {
+  border-color: var(--color-text);
+  width: 240px;
+}
+
+/* ========================================
+   6. Hero Zone
+   ======================================== */
+.hero {
+  max-width: var(--max-width);
+  margin: var(--spacing-lg) auto 0;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--grid-gap);
+}
+
+.hero .card:first-child {
+  grid-row: 1 / 3;
+}
+
+.hero .card:first-child .card__title {
+  font-size: 1.8rem;
+}
+
+.hero .card:first-child .card__summary {
+  display: block;
+}
+
+/* ========================================
+   7. Card Component
+   ======================================== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.card__image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.card--tall .card__image-wrap {
+  aspect-ratio: 16 / 14;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.03);
+}
+
+.card__image--placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 50%, #e0e0e0 100%);
+}
+
+.card__tag {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.9);
+  color: var(--color-text);
+  backdrop-filter: blur(4px);
+}
+
+.card__body {
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.card__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__summary {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__date {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
+  margin-top: auto;
+}
+
+/* ========================================
+   8. Article Grid
+   ======================================== */
+.grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: var(--grid-gap);
+}
+
+.card--large {
+  grid-column: span 2;
+}
+
+.card--tall {
+  grid-row: span 2;
+}
+
+/* ========================================
+   9. No Results
+   ======================================== */
+.no-results {
+  display: none;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  color: var(--color-muted);
+}
+
+.no-results.visible {
+  display: block;
+}
+
+.no-results__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.no-results__text {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.no-results__hint {
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   10. Footer
+   ======================================== */
+.footer {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer__rule {
+  width: 40px;
+  height: 1px;
+  background: var(--color-rule);
+  margin: 0 auto var(--spacing-md);
+}
+
+/* ========================================
+   11. Responsive
+   ======================================== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero .card:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card--large {
+    grid-column: span 1;
+  }
+
+  .card--tall {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .masthead {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .nav__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .nav__pills {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .nav__pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav__search {
+    width: 100%;
+  }
+
+  .search-input,
+  .search-input:focus {
+    width: 100%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    margin-top: var(--spacing-md);
+  }
+
+  .hero .card:first-child .card__title {
+    font-size: 1.3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .card__image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
